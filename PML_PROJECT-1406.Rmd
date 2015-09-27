@@ -8,9 +8,9 @@ output: html_document
 
 ## SYNOPSIS
 
-###In this project, the goal is  to use data from accelerometers on the belt, forearm, arm, 
-###and dumbell of 6 participants and predict the manner in which they did the exercise. 
-###This is the "classe" variable in the training set. 
+In this project, the goal is  to use data from accelerometers on the belt, forearm, arm, 
+and dumbell of 6 participants and predict the manner in which they did the exercise. 
+This is the "classe" variable in the training set. 
 
 ## PROCESS
 
@@ -102,13 +102,13 @@ testing <- t[-inTrain,]
 # Using Random Forest with a cross validation number = 4 (Either the number of folds or number of resampling iterations)
 
 Sys.time()
-modFit <- train(classe~., data=training, method="rf", preProcess = "pca",
-                trcontrol=trainControl(method = "cv", number = 4))
+modFit <- train(classe~., data=training, method="rf", trcontrol=trainControl(method = "cv",
+                                                                             number = 4))
 Sys.time()
 
 # Save model
 
-save(modFit, file = "modelFit704.RData")
+save(modFit, file = "modelFit70npca.RData")
 ```
 
 ###  PRINT RANDOM FOREST MODEL
